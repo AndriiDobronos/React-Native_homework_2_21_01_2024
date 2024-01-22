@@ -66,7 +66,15 @@ const styles = StyleSheet.create({
         borderRadius:8,
         borderStyle: "solid",
         borderWidth:1,
-        borderColor:"grey"
+        borderColor:"grey",
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+        elevation: 5,
     },
     roundContainer: {
         marginLeft:-50,
