@@ -1,9 +1,17 @@
-import {Image, StyleSheet, Text, View} from "react-native";
-import React from "react";
-import {ColorsVar} from "../constants/ColorsVar";
-import image from "../images/Pizza1.png";
-import trolley from "../images/trolley.png";
-import redHeart from "../images/redHeart.png";
+import {Image, StyleSheet, Text, useColorScheme,TouchableOpacity,View} from 'react-native';
+import React from 'react';
+import {ColorsVar} from '@/constants/ColorsVar';
+import image1 from '@/images/Pizza1.png';
+import image2 from '@/images/Pizza1.png';
+import image3 from '@/images/Pizza1.png';
+import image4 from '@/images/Pizza1.png';
+import image5 from '@/images/Pizza1.png';
+import image6 from '@/images/Pizza1.png';
+import trolleyI from '@/images/trolley.png';
+import redHeartI from '@/images/redHeart.png';
+import {useNavigation} from "@react-navigation/native";
+import {NativeStackNavigationProp} from "@react-navigation/native-stack";
+import {HomeStackParamList} from "@/navigation/native-stack/types";
 
 type mockProps = {
     mockItemData:{
@@ -15,20 +23,36 @@ type mockProps = {
     oldPrice: string,
     description:string,
     imageInternet: string,
-    image: image,
-    trolley: trolley,
-    redHeart: redHeart,
+    image: image1|image2|image3|image4|image5|image6,
+    trolley: trolleyI,
+    redHeart: redHeartI,
     buy: string,
-    new: string,
+    nw: string,
     }
 };
 
 const ProductCard = (props:mockProps) => {
+    const isDark = useColorScheme() === 'dark';
+    const navigation =
+        useNavigation<NativeStackNavigationProp<HomeStackParamList>>();
+
+    const handlePress = () => {
+        navigation.navigate('ApartmentScreen',
+            //{item:{title,isNew,newPrice,priceNew,priceOld,oldPrice,description,imageInternet,image,trolley,redHeart,buy,nw}}
+            {item:props}
+        )
+    };
     return(
-        <View style={styles.container}>
+        <TouchableOpacity
+            style={[
+                styles.container,
+                //{ backgroundColor: isDark ? '#767676' : '#e8e8e8' },
+            ]}
+            onPress={handlePress}>
+        {/*<View style={styles.container}>*/}
             <Image style={styles.imageMain} source={props.mockItemData.image}/>
             <View style={styles.roundContainer}>
-                <Text style={styles.textNew}>{props.mockItemData.new}</Text>
+                <Text style={styles.textNew}>{props.mockItemData.nw}</Text>
             </View>
             <View style={styles.centerContainer}>
                 <Text style={styles.textStyle}>{props.mockItemData.title}</Text>
@@ -49,13 +73,15 @@ const ProductCard = (props:mockProps) => {
                     <Image style={styles.imageTrolley} source={props.mockItemData.trolley}/>
                 </View>
             </View>
-        </View>
+        {/*</View>*/}
+        </TouchableOpacity>
     )
 };
 
 const styles = StyleSheet.create({
     container: {
-        flex:0.2,
+        //flex:0.2,
+        height:148,
         flexDirection:"row",
         margin:10,
         backgroundColor: ColorsVar.cardsBackground,

@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
 import { Modal, StyleSheet, Text, Pressable, View, Image} from 'react-native';
-import {mockItemData1} from "../constants/mockItemData";
-import {ColorsVar} from "../constants/ColorsVar";
+import {mockItemData1} from "@/constants/mockItemData";
+import {ColorsVar} from "@/constants/ColorsVar";
+import {CarouselFlatList} from "@/components/CarouselFlatlist";
 
 const ModalWindow = () => {
     const [modalVisible, setModalVisible] = useState(false);
@@ -16,11 +17,15 @@ const ModalWindow = () => {
                 }}>
                 <View style={styles.centeredView}>
                     <View style={styles.modalView}>
+
+                        <CarouselFlatList  />
+
                         <Pressable
                             style={[styles.button, styles.buttonClose]}
                             onPress={() => setModalVisible(!modalVisible)}>
                             <Text style={styles.textStyle}>Close Modal</Text>
                         </Pressable>
+
                     </View>
                 </View>
             </Modal>
@@ -35,12 +40,11 @@ const ModalWindow = () => {
 
 const styles = StyleSheet.create({
     centeredView: {
-        flex: 0.5,
-        marginTop: 1,
-        marginRight:-50,
+        flex: 1,
     },
     modalView: {
-        flex:1,
+        flex:0.68,
+        gap:16,
         backgroundColor: ColorsVar.whiteColor,
         borderRadius: 3,
        marginHorizontal:5,
@@ -61,7 +65,7 @@ const styles = StyleSheet.create({
          elevation: 2,
     },
     buttonOpen: {
-
+        left:50,
     },
     buttonClose: {
         backgroundColor:ColorsVar.borderColor,

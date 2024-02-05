@@ -1,13 +1,68 @@
-import image1 from '@/images/Pizza1.png';
-import image2 from '@/images/Pizza2.png';
-import image3 from '@/images/Pizza3.png';
-import image4 from '@/images/Pizza4.png';
-import image5 from '@/images/Pizza5.png';
-import image6 from '@/images/Pizza6.png';
-import trolley from '@/images/trolley.png';
-import redHeart from '@/images/redHeart.png';
+import image from "../images/Pizza1.png";
+import trolley from "../images/trolley.png";
+import redHeart from "../images/redHeart.png";
+import image1 from "@/images/Pizza1.png";
+import image2 from "@/images/Pizza2.png";
+import image3 from "@/images/Pizza3.png";
+import image4 from "@/images/Pizza4.png";
+import image5 from "@/images/Pizza5.png";
+import image6 from "@/images/Pizza6.png";
 
-const mockItemData1 = {
+export interface Apartment {
+    name: string;
+    image: string;
+    price: number;
+}
+
+export interface Pizza {
+    title: string,
+    isNew: boolean,
+    newPrice: string,
+    priceNew: string,
+    priceOld: string,
+    oldPrice: string,
+    description:string,
+    imageInternet: string,
+    image: string,
+    trolley: string,
+    redHeart: string,
+    buy: string,
+    nw: string,
+}
+
+const APARTMENT_DATA: Apartment[] = [
+    {
+        name: 'Cozy Apartment',
+        image:
+            'https://images.pexels.com/photos/565324/pexels-photo-565324.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+        price: 1200,
+    },
+    {
+        name: 'Modern Loft',
+        image: 'https://images.pexels.com/photos/439391/pexels-photo-439391.jpeg',
+        price: 1500,
+    },
+    {
+        name: 'Urban Studio',
+        image: 'https://images.pexels.com/photos/323705/pexels-photo-323705.jpeg',
+        price: 1000,
+    },
+    {
+        name: 'Luxury Penthouse',
+        image:
+            'https://images.pexels.com/photos/681331/pexels-photo-681331.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+        price: 2500,
+    },
+    {
+        name: 'Charming Condo',
+        image:
+            'https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+        price: 900,
+    },
+];
+
+const PIZZA_DATA: Pizza[] = [
+    {
     title: 'Pizza 1',
     isNew: true,
     newPrice: 'New Price',
@@ -21,8 +76,8 @@ const mockItemData1 = {
     redHeart: redHeart,
     buy: "Buy",
     nw: "NEW",
-};
-const mockItemData2 = {
+},
+    {
     title: 'Pizza 2',
     isNew: true,
     newPrice: 'New Price',
@@ -36,8 +91,8 @@ const mockItemData2 = {
     redHeart: redHeart,
     buy: "Buy",
     nw: "TOP",
-};
-const mockItemData3 = {
+},
+    {
     title: 'Pizza 3',
     isNew: true,
     newPrice: 'New Price',
@@ -51,8 +106,8 @@ const mockItemData3 = {
     redHeart: redHeart,
     buy: "Buy",
     nw: "BEST",
-};
-const mockItemData4 = {
+},
+    {
     title: 'Pizza 4',
     isNew: true,
     newPrice: 'New Price',
@@ -66,8 +121,8 @@ const mockItemData4 = {
     redHeart: redHeart,
     buy: "Buy",
     nw: "NEW",
-};
-const mockItemData5 = {
+},
+    {
     title: 'Pizza 5',
     isNew: true,
     newPrice: 'New Price',
@@ -81,8 +136,8 @@ const mockItemData5 = {
     redHeart: redHeart,
     buy: "Buy",
     nw: "TOP",
-};
-const mockItemData6 = {
+},
+    {
     title: 'Pizza 6',
     isNew: true,
     newPrice: 'New Price',
@@ -96,8 +151,8 @@ const mockItemData6 = {
     redHeart: redHeart,
     buy: "Buy",
     nw: "BEST",
-};
-const mockItemData7 = {
+},
+    {
     title: 'Pizza 7',
     isNew: true,
     newPrice: 'New Price',
@@ -111,8 +166,8 @@ const mockItemData7 = {
     redHeart: redHeart,
     buy: "Buy",
     nw: "NEW",
-};
-const mockItemData8 = {
+},
+    {
     title: 'Pizza 8',
     isNew: true,
     newPrice: 'New Price',
@@ -126,8 +181,8 @@ const mockItemData8 = {
     redHeart: redHeart,
     buy: "Buy",
     nw: "TOP",
-};
-const mockItemData9 = {
+},
+    {
     title: 'Pizza 9',
     isNew: true,
     newPrice: 'New Price',
@@ -140,9 +195,9 @@ const mockItemData9 = {
     trolley: trolley,
     redHeart: redHeart,
     buy: "Buy",
-    nw: "",
-};
-const mockItemData10 = {
+    nw: "GOOD",
+},
+    {
     title: 'Pizza 10',
     isNew: true,
     newPrice: 'New Price',
@@ -156,19 +211,37 @@ const mockItemData10 = {
     redHeart: redHeart,
     buy: "Buy",
     nw: "NEW",
-};
+},
+    {
+        title: 'Pizza 11',
+        isNew: true,
+        newPrice: 'New Price',
+        priceNew: '45 uah',
+        priceOld: '75 uah',
+        oldPrice: 'Old Price',
+        description:'Long title long title long title long title',
+        imageInternet: 'https://img.freepik.com/free-photo/top-view-pepperoni-pizza-with-mushroom-sausages-bell-pepper-olive-corn-black-wooden_141793-2158.jpg',
+        image: image5,
+        trolley: trolley,
+        redHeart: redHeart,
+        buy: "Buy",
+        nw: "TOP",
+    },
+    {
+        title: 'Pizza 12',
+        isNew: true,
+        newPrice: 'New Price',
+        priceNew: '36 uah',
+        priceOld: '56 uah',
+        oldPrice: 'Old Price',
+        description:'Long title long title long title long title',
+        imageInternet: 'https://img.freepik.com/free-photo/top-view-pepperoni-pizza-with-mushroom-sausages-bell-pepper-olive-corn-black-wooden_141793-2158.jpg',
+        image: image6,
+        trolley: trolley,
+        redHeart: redHeart,
+        buy: "Buy",
+        nw: "BEST",
+    },
+]
 
-const data = [
-    { id: '1', name: 'PIZZA 1', property1: true, property2: false,property3: false,property4: false, mockItemData:mockItemData1 },
-    { id: '2', name: 'PIZZA 2', property1: false, property2: true,property3: false,property4: false,mockItemData:mockItemData2 },
-    { id: '3', name: 'PIZZA 3', property1: true, property2: true, property3: true, property4: true,mockItemData:mockItemData3 },
-    { id: '4', name: 'PIZZA 4', property1: false, property2: false, property3: true, property4: true,mockItemData:mockItemData4 },
-    { id: '5', name: 'PIZZA 5', property1: false, property2: false, property3: true, property4: true,mockItemData:mockItemData5 },
-    { id: '6', name: 'PIZZA 6', property1: false, property2: false, property3: true, property4: true,mockItemData:mockItemData6 },
-    { id: '7', name: 'PIZZA 7', property1: false, property2: false, property3: true, property4: true,mockItemData:mockItemData7 },
-    { id: '8', name: 'PIZZA 8', property1: false, property2: false, property3: true, property4: true,mockItemData:mockItemData8 },
-    { id: '9', name: 'PIZZA 9', property1: false, property2: false, property3: true, property4: true,mockItemData:mockItemData9 },
-    { id: '10', name: 'PIZZA 10', property1: false, property2: false, property3: true, property4: true,mockItemData:mockItemData10 },
-];
-export {mockItemData1,mockItemData2,mockItemData3,mockItemData4,mockItemData5,
-mockItemData6,mockItemData7,mockItemData8,mockItemData9,mockItemData10,data}
+export { APARTMENT_DATA,PIZZA_DATA};

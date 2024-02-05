@@ -1,13 +1,26 @@
 import React, { useState } from 'react';
-import {View, TextInput, Button, FlatList, Text, StyleSheet, Modal, ScrollView,Pressable} from 'react-native';
+import {
+    View,
+    TextInput,
+    Button,
+    FlatList,
+    Text,
+    StyleSheet,
+    Modal,
+    ScrollView,
+    Pressable,
+    useColorScheme, Dimensions
+} from 'react-native';
 import {Checkbox} from 'react-native-paper';
-import {ProductCard} from "./ProductCard";
-import {data} from "../constants/mockItemData";
-import ModalWindow from "./Modal";
-import {ColorsVar} from "../constants/ColorsVar";
+import {ProductCard} from './ProductCard';
+import {data} from '@/constants/mockItemData';
+import ModalWindow from './Modal';
+import {ColorsVar} from '@/constants/ColorsVar';
 
 const SearchAndFilter = () => {
     const [searchQuery, setSearchQuery] = useState('');
+    const isDark = useColorScheme() === 'dark';
+    const width = Dimensions.get('window').width
 
     const [filteredData, setFilteredData] = useState(data);
     const [showModal, setShowModal] = useState(false);
@@ -46,7 +59,7 @@ const SearchAndFilter = () => {
         <View style={styles.container}>
             <View style={styles.searchContainer}>
                 <TextInput
-                    style={styles.input}
+                    style={[styles.input, { color: isDark ? '#fff' : '#000' },{borderColor: isDark ? '#fff' : '#000'}]}
                     placeholder="Enter the text to search"
                     value={searchQuery}
                     onChangeText={(text) => setSearchQuery(text)}
@@ -148,7 +161,8 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         marginBottom: 16,
         marginRight:20,
-        gap:20,
+        gap:15,
+
     },
     wrapperCustom: {
         padding:12,
